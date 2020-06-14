@@ -10,11 +10,12 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>rpc-server</module>
+        <module>rpc-client</module>
     </modules>
 
     <properties>
         <netty.version>4.1.42.Final</netty.version>
-        <protostuff.version>1.6.1</protostuff.version>
+        <protostuff.version>1.6.2</protostuff.version>
         <cglib.version>3.3.0</cglib.version>
     </properties>
 
@@ -29,12 +30,12 @@
 
         <!-- Protostuff -->
         <dependency>
-            <groupId>com.dyuproject.protostuff</groupId>
+            <groupId>io.protostuff</groupId>
             <artifactId>protostuff-core</artifactId>
             <version>${protostuff.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.dyuproject.protostuff</groupId>
+            <groupId>io.protostuff</groupId>
             <artifactId>protostuff-runtime</artifactId>
             <version>${protostuff.version}</version>
         </dependency>
