@@ -1,5 +1,9 @@
 package com.richard.rpc.client;
 
+import com.richard.rpc.common.CommonDecoder;
+import com.richard.rpc.common.CommonEncoder;
+import com.richard.rpc.common.bo.RpcRequest;
+import com.richard.rpc.common.bo.RpcResponse;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -29,7 +33,9 @@ public class ClientStarter {
                     .remoteAddress(new InetSocketAddress(HOST, PORT))
                     .handler(new ChannelInitializer<SocketChannel>() {
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new ClientHandler());
+                            ch.pipeline().addLast(new CommonDecoder(RpcResponse.class))
+                                    .addLast(new CommonEncoder(RpcRequest.class))
+                                    .addLast(new ClientHandler());
                         }
                     });
             ChannelFuture future = bootstrap.connect().sync();

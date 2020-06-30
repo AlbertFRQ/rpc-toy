@@ -11,6 +11,7 @@
     <modules>
         <module>rpc-server</module>
         <module>rpc-client</module>
+        <module>rpc-common</module>
     </modules>
 
     <properties>
@@ -60,7 +61,29 @@
             <version>1.7.7</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+            <scope>provided</scope>
+        </dependency>
+
+
     </dependencies>
 
+    <build>
+        <finalName>rpc</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
